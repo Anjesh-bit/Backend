@@ -60,7 +60,7 @@ exports.updateCompetition = (req, res) => {
         AuthorName: req.body.AuthorName
 
     };
-    Compete.findByIdAndDelete(req.params.id, { $set: AdminCompete }, { new: true }, (err, comp) => {
+    Compete.findByIdAndUpdate(req.params.id, { $set: AdminCompete }, { new: true }, (err, comp) => {
         if (!err) { res.send(comp); }
         else {
 
@@ -71,7 +71,7 @@ exports.updateCompetition = (req, res) => {
 
 exports.DeleteCompetition = (req, res) => {
 
-    Compete.findByIdAndDelete(req.params.id, (err, document) => {
+    Compete.findByIdAndRemove(req.params.id, (err, document) => {
 
         if (!err) {
             res.send(document);

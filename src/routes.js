@@ -4,6 +4,7 @@ var userController = require('./controller/user-con');
 var AddCompetitions = require('./controller/AddCompetition');
 var passport = require('passport');
 var Competitionget = require('./middleware/findCompetition');
+var UserAddtoHome = require('./middleware/Usersaddtohome');
 
 
 routes.get('/', (req, res) => {
@@ -17,6 +18,8 @@ routes.get('/getCompetition/:id', Competitionget.Competitionid);
 routes.put('/getCompetition/:id', Competitionget.updateCompetition);
 routes.delete('/getCompetition/:id', Competitionget.DeleteCompetition);
 routes.post('/register', userController.registerUser);
+routes.get('/register/:id', UserAddtoHome.USERfindbyID);
+routes.put('/registerUpdate/:id', UserAddtoHome.USERaddtoHOME);
 routes.post('/login', userController.loginUser);
 
 

@@ -24,7 +24,7 @@ passport.use(passportMiddleware);
 var routes = require('./routes');
 app.use('/', routes);
 
-mongoose.connect(config.db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+mongoose.connect(config.db, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true, useFindAndModify: false });
 
 const connection = mongoose.connection;
 

@@ -4,7 +4,7 @@ var config = require('../config/config');
 
 function createToken(user) {
     return jwt.sign({ id: user.id, email: user.email }, config.jwtSecret, {
-        expiresIn: 86400// 86400 expires in 24 hours
+        expiresIn: '24h'// 86400 expires in 24 hours
     });
 }
 
@@ -28,7 +28,7 @@ exports.registerUser = (req, res) => {
             if (err) {
                 return res.status(400).json({ 'msg': err });
             }
-            return res.status(201).json(user);
+            return res.status(201).json({ usersRegister: user });
         });
     });
 };
