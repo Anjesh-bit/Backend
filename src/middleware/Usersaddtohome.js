@@ -32,7 +32,7 @@ exports.USERfindbyID = (req, res) => {
 
         }
         else {
-            res.send({ user: user });
+            res.send(user);
         }
     })
 }

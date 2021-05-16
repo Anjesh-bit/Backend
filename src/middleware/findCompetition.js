@@ -1,3 +1,5 @@
+
+
 var Compete = require('../models/competition');
 
 exports.Create = (req, res) => {
@@ -43,9 +45,9 @@ exports.Competitionid = (req, res) => {
     Compete.findById(req.params.id, (_err, _result) => {
         if (!_err) {
 
-            res.send((_result));
+            res.send(_result);
         }
-        else { res.status(400).json({ 'msg': err }); }
+        else { res.status(400).json({ 'msg': _err }); }
     })
 
 
